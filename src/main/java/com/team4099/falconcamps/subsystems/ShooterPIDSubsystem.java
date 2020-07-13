@@ -8,9 +8,12 @@ public class ShooterPIDSubsystem extends SubsystemBase {
     private final CANSparkMax shooterFollower = new CANSparkMax(14, CANSparkMaxLowLevel.MotorType.kBrushless);
     private final CANEncoder shooterEncoder = shooterLeader.getEncoder();
 
-    public ShooterPIDSubsystem() {
-
-    }
+   public ShooterPIDSubsystem() {
+            double ShooterP = 1.7/ 300
+            double ShooterI = 0.0;
+            double ShooterD = 5.5 * 14000;
+            super(new PIDController(ShooterP, ShooterI, ShooterD));
+        }
 
     @Override
     public void periodic() {}
