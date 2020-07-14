@@ -12,13 +12,13 @@ public class ShooterPIDSubsystem extends PIDSubsystem {
     private final CANEncoder shooterEncoder = shooterLeader.getEncoder();
 
    public ShooterPIDSubsystem() {
-            double shooterP = 1.7/ 300
+            double shooterP = 1.7/ 300;
             double shooterI = 0.0;
             double shooterD = 5.5 * 14000;
             super(new PIDController(shooterP, shooterI, shooterD));
         }
 public double useMeasurement() {
-    return GetCurrentVelocity
+    return GetCurrentVelocity;
 }
 public void useOutput(double setPoint, double output);
   
