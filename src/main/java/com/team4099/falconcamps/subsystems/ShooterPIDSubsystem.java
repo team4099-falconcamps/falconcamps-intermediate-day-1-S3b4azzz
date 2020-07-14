@@ -5,6 +5,8 @@ import com.revrobotics.*;
 import edu.wpi.first.wpilibj2.command.PIDSubsystem;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import io.github.oblarg.oblog.annotations.Config.PIDController;
+import jdk.javadoc.internal.doclets.toolkit.util.DocFinder.Output;
+import sun.font.TrueTypeFont;
 
 public class ShooterPIDSubsystem extends PIDSubsystem {
     private final CANSparkMax shooterLeader = new CANSparkMax(1, CANSparkMaxLowLevel.MotorType.kBrushless);
@@ -16,12 +18,19 @@ public class ShooterPIDSubsystem extends PIDSubsystem {
             double shooterI = 0.0;
             double shooterD = 5.5 * 14000;
             super(new PIDController(shooterP, shooterI, shooterD));
+            shooterFollower.follow(shooterLeader, true);
         }
-public double useMeasurement() {
-    return GetCurrentVelocity;
+
+public void useOutput(double output, double setpoint) {
+	shooterLeader.set(output);
 }
-public void useOutput(double setPoint, double output);
   
 @Override
     public void periodic() {}
+
+    @Override
+    protected double getMeasurement() {
+        
+        return shooterEncoder.getVelocity();
+    }
 }
