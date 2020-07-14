@@ -13,6 +13,6 @@ public class ShootPIDSubsystemCommand extends CommandBase {
 
     @Override
     public void initialize() {
-
+shooter.setSetPoint(5000);
     }
 }
