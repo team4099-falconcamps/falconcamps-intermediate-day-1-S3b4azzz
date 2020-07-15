@@ -13,7 +13,7 @@ public class ShooterSparkPID extends SubsystemBase {
         pidController.setP(1.7 / 300);
         pidController.setI(0.0);
         pidController.setD(5.5 * 14000);
-        shooterFollower.follow(shooterLeader);
+        shooterFollower.follow(shooterLeader, true);
     }
 
     @Override
